@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Taís Alves — Nail Designer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght=0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg: #fefaf9;
+  --bg-sub: #fbf1f0;
+  --rosa-soft: #f8e7eb;
+  --rosa-medium: #e8b8c2;
+  --rosa-dark: #b38c95;
+  --gold: #c8a27a;
+  --texto-main: #2d2222;
+  --texto-muted: #6e5d5d;
+  --branco: #ffffff;
+  --shadow-sm: 0 4px 20px rgba(179,140,149,0.06);
+  --shadow-md: 0 12px 35px rgba(179,140,149,0.12);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body{
+  background: var(--bg);
+  font-family: 'Inter', sans-serif;
+  color: var(--texto-main);
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+img{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.container{
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* HERO SECTION */
+.hero{
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 60px 0 40px;
+  background: linear-gradient(180deg, var(--branco) 0%, var(--bg) 100%);
+}
+
+.hero::before{
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: var(--rosa-soft);
+  border-radius: 50%;
+  top: -100px;
+  right: -100px;
+  filter: blur(50px);
+  z-index: 1;
+}
+
+.hero-content{
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+}
+
+.hero-img{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+  border: 8px solid var(--branco);
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.hero-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+.hero-name-container {
+  display: inline-block;
+  position: relative;
+  margin-top: 24px;
+}
+
+.hero-name{
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 50px;
+  line-height: 0.95;
+  font-weight: 700;
+  color: var(--texto-main);
+  letter-spacing: -0.5px;
+}
+
+.brush-stroke {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: auto;
+  pointer-events: none;
+}
+
+.brush-line {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: drawStroke 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes drawStroke {
+  to { stroke-dashoffset: 0; }
+}
+
+.hero-role{
+  margin-top: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--rosa-dark);
+}
+
+.hero p{
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--texto-muted);
+  padding: 0 15px;
+}
+
+/* SECTIONS E ACORDION */
+.section{
+  padding: 12px 0;
+  position: relative;
+}
+
+.accordion-trigger {
+  width: 100%;
+  border: none;
+  padding: 18px 28px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--rosa-medium), #d591a2);
+  color: var(--branco);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(213,145,162, 0.3);
+  transition: all 0.3s ease;
+}
+
+.accordion-trigger::after {
+  content: '+';
+  font-family: 'Inter', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--branco);
+  transition: transform 0.3s ease;
+}
+
+.accordion-trigger.active {
+  background: linear-gradient(135deg, #d591a2, var(--rosa-dark));
+  box-shadow: 0 4px 15px rgba(213,145,162, 0.2);
+}
+
+.accordion-trigger.active::after {
+  content: '−';
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+}
+
+.accordion-wrapper {
+  padding: 20px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* QUEM SOU EU */
+.about-section {
+  padding: 60px 0 40px;
+}
+
+.about{
+  background: var(--branco);
+  padding: 24px;
+  border-radius: 28px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.about-image {
+  flex-shrink: 0;
+}
+
+.about-image img{
+  width: 140px;
+  height: 185px;
+  border-radius: 20px;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.about-text{
+  flex: 1;
+}
+
+.about-text h3{
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--rosa-dark);
+  margin-bottom: 6px;
+}
+
+.about-text p{
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--texto-muted);
+}
+
+/* CONTAINER PADRÃO DE SERVIÇOS (USADO EM PROCEDIMENTOS, PÉS E MANUTENÇÕES) */
+.service-block {
+  background: var(--branco);
+  padding: 20px;
+  border-radius: 28px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.service-block-image {
+  flex-shrink: 0;
+}
+
+.service-block-image img {
+  width: 120px;
+  height: 160px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.service-block-text {
+  flex: 1;
+}
+
+.service-block-text h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--texto-main);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+/* Subtítulo pequeno opcional usado nas manutenções */
+.service-block-text h5 {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--rosa-dark);
+  margin-bottom: 2px;
+}
+
+.service-block-text p {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--texto-muted);
+}
+
+/* CONTATOS E PAGAMENTO */
+.payment-section {
+  padding: 30px 0;
+}
+
+.payment-box{
+  background: var(--branco);
+  padding: 32px 24px;
+  border-radius: 32px;
+  box-shadow: var(--shadow-md);
+}
+
+.payment-list{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.payment-item{
+  padding: 12px 5px;
+  border-radius: 14px;
+  background: var(--bg-sub);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--texto-muted);
+  text-align: center;
+}
+
+.socials{
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.socials a{
+  padding: 18px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.btn-instagram{
+  background: var(--bg-sub);
+  color: #5c4348;
+  border: 1px solid rgba(179,140,149,0.15);
+}
+
+.btn-whatsapp{
+  background: linear-gradient(135deg, #dba0ad, var(--rosa-dark));
+  color: var(--branco);
+  box-shadow: 0 8px 20px rgba(179,140,149,0.3);
+}
+
+.address{
+  margin-top: 28px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--texto-muted);
+  text-align: center;
+}
+
+/* FOOTER */
+footer{
+  padding: 32px 0;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #b2a4a4;
+  border-top: 1px solid var(--rosa-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  width: 28px; 
+  height: auto;
+  opacity: 0.75;
+}
+
+.credits {
+  font-size: 8.5px;
+  letter-spacing: 1.5px;
+  color: var(--rosa-dark);
+  margin-top: 2px;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-img">
+        <img src="F1C.JPG" alt="Taís Alves">
+      </div>
+
+      <div class="hero-name-container">
+        <h1 class="hero-name">Taís Alves</h1>
+        <svg class="brush-stroke" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="brush-line" d="M5 12C35 5 85 4 115 7C145 10 175 14 195 9" stroke="#e8b8c2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="hero-role">Nail Designer</div>
+
+      <p>Alongamentos de alto padrão, esmaltação e cuidados premium que transformam sua autoestima com delicadeza e sofisticação.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section about-section">
+  <div class="container">
+    <div class="about">
+      <div class="about-image">
+        <img src="F2Q.JPG" alt="Taís Alves">
+      </div>
+      <div class="about-text">
+        <h3>Quem sou eu?</h3>
+        <p>Olá, me chamo Taís Alves e trabalho como unhas desde os 15 anos. Ao longo dessa jornada, venho me aperfeiçoando para criar identidades visuais que elevam a autoestima da mulher. Acredito que cada mulher deve se inspirar no seu próprio estilo, no que a faz se sentir autêntica e poderosa. Meu design é um convite para que cada mulher se expresse com confiança, sem se prender ao gosto dos outros, mas se conectando com sua essência.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <button class="accordion-trigger" aria-expanded="false">Procedimentos</button>
+    <div class="accordion-content">
+      <div class="accordion-wrapper">
+
+        <div class="service-block">
+          <div class="service-block-image">
+            <img src="alonf.jpg" alt="Fibra de Vidro">
+          </div>
+          <div class="service-block-text">
+            <h4>Fibra de Vidro</h4>
+            <p>A fibra de vidro para unhas é um material composto por filamentos finos que, quando aplicados com um gel ou resina, reforçam a estrutura da unha, proporcionando alongamento leve, resistente e natural. É uma técnica duradoura, ideal para quem busca uma alternativa mais fina e flexível, com acabamento impecável e menor risco de quebra.</p>
+          </div>
+        </div>
+
+        <div class="service-block">
+          <div class="service-block-image">
+            <img src="blida.jpg" alt="Blindagem Diamond">
+          </div>
+          <div class="service-block-text">
+            <h4>Blindagem Diamond</h4>
+            <p>Camada protetora ideal para blindar suas unhas naturais contra quebras estruturais e rachaduras, promovendo brilho uniforme por muito mais tempo.</p>
+          </div>
+        </div>
+
+        <div class="service-block">
+          <div class="service-block-image">
+            <img src="unhasgel.jpg" alt="Esmaltação em Gel / Molde F1">
+          </div>
+          <div class="service-block-text">
+            <h4>Esmaltação em Gel</h4>
+            <p>O molde F1 para unhas em gel é um sistema de suporte técnico de alta precisão, desenvolvido para garantir o alongamento exato e simétrico das unhas. Ele é feito de material de alta qualidade, permitindo uma aderência segura e um controle preciso do formato. Ideal para profissionais que buscam um resultado duradouro, natural e com alta performance.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <button class="accordion-trigger" aria-expanded="false">Estética dos Pés</button>
+    <div class="accordion-content">
+      <div class="accordion-wrapper">
+
+        <div class="service-block">
+          <div class="service-block-image">
+            <img src="spap.jpg" alt="SPA dos Pés">
+          </div>
+          <div class="service-block-text">
+            <h4>SPA dos Pés</h4>
+            <p>Tratamento relaxante com esfoliação, imersão em água morna e hidratação profunda para remover calosidades e renovar totalmente a pele.</p>
+          </div>
+        </div>
+
+        <div class="service-block">
+          <div class="service-block-image">
+            <img src="Premium.png" alt="Pedicure Premium">
+          </div>
+          <div class="service-block-text">
+            <h4>Pedicure Premium</h4>
+            <p>Cuidado meticuloso focado na saúde e na estética das unhas dos pés, oferecendo corte correto, remoção higiênica de cutículas e acabamento limpo.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <button class="accordion-trigger" aria-expanded="false">Manutenções</button>
+    <div class="accordion-content">
+      <div class="accordion-wrapper">
+
+        <div class="service-block">
+          <div class="service-block-image">
+            <img src="along.png" alt="Alongamento">
+          </div>
+          <div class="service-block-text">
+            <h5>Cuidados</h5>
+            <h4>Alongamento</h4>
+            <p>A manutenção deve ser realizada entre 15 e 20 dias para preservar resistência e beleza.</p>
+          </div>
+        </div>
+
+        <div class="service-block">
+          <div class="service-block-image">
+            <img src="cuidados-2.png" alt="Esmaltação em Gel">
+          </div>
+          <div class="service-block-text">
+            <h5>Cuidados</h5>
+            <h4>Esmaltação em Gel</h4>
+            <p>Evite remover em casa para não comprometer a saúde das unhas naturais.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section payment-section">
+  <div class="container">
+    <div class="payment">
+      <div class="payment-box">
+        
+        <p style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--rosa-dark); font-weight: 500; text-align: center;">Formas de pagamento</p>
+        
+        <div class="payment-list">
+          <div class="payment-item">Pix</div>
+          <div class="payment-item">Crédito</div>
+          <div class="payment-item">Débito</div>
+        </div>
+
+        <div class="socials">
+          <a href="https://wa.me/SEUNUMERO" class="btn-whatsapp" target="_blank">Agendar via WhatsApp</a>
+          <a href="https://instagram.com/SEUUSER" class="btn-instagram" target="_blank">Acompanhar no Instagram</a>
+        </div>
+
+        <div class="address">
+          <strong>Taís Alves Studio</strong><br>
+          Rua Exemplo, Centro<br>
+          Arapiraca • AL
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <svg class="footer-logo" viewBox="0 0 44 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c3.72 0 6.96-2.03 8.72-5.06L31.28 5.06C33.04 2.03 36.28 2 40 2c5.52 0 10 4.48 10 10s-4.52 10-10 10c-3.72 0-6.96-2.03-8.72-5.06L20.72 7.06C18.96 4.03 15.72 2 12 2z" stroke="var(--rosa-dark)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  
+  <span>© <span id="year"></span> • Taís Alves Studio</span>
+  <span class="credits">Página criada por Flow Páginas</span>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+    trigger.addEventListener('click', function() {
+      this.classList.toggle('active');
+      const content = this.nextElementSibling;
+      
+      if (this.classList.contains('active')) {
+        content.style.maxHeight = content.scrollHeight + "px";
+        this.setAttribute('aria-expanded', 'true');
+      } else {
+        content.style.maxHeight = "0px";
+        this.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
