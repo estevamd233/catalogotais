@@ -131,6 +131,7 @@ a{
   letter-spacing: -0.5px;
 }
 
+/* ANIMAÇÃO DA PINCELADA EFEITO DESENHO */
 .brush-stroke {
   position: absolute;
   bottom: -8px;
@@ -139,6 +140,19 @@ a{
   width: 150px;
   height: auto;
   pointer-events: none;
+}
+
+.brush-stroke path {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: drawStroke 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.5s; /* Começa suave logo após o carregamento inicial */
+}
+
+@keyframes drawStroke {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 .hero-role{
@@ -158,14 +172,14 @@ a{
   padding: 0 10px;
 }
 
-/* DIVISÓRIA DA LOGO COM LINHAS INFINITAS CORRIGIDA */
+/* DIVISÓRIA DA LOGO COM LINHAS INFINITAS */
 .brand-logo-divider-container {
   display: flex;
   align-items: center;
   justify-content: center;
   width: auto;
-  margin-left: -24px;  /* Força a expansão até a borda esquerda da tela */
-  margin-right: -24px; /* Força a expansão até a borda direita da tela */
+  margin-left: -24px;  
+  margin-right: -24px; 
   padding: 35px 0 20px;
   gap: 0;
 }
@@ -180,14 +194,14 @@ a{
 }
 
 .brand-logo-inner {
-  padding: 0 5px; /* Pequeno respiro para a linha não colar colada demais na imagem */
+  padding: 0 5px; 
   flex-shrink: 0;
   display: flex;
   align-items: center;
 }
 
 .brand-logo-inner img {
-  width: 140px; /* Reduzido e calibrado */
+  width: 140px; 
   height: auto;
   display: block;
 }
@@ -478,7 +492,7 @@ footer{
       </div>
       <div class="about-text">
         <h3>Quem sou eu?</h3>
-        <p>Olá, me chamo Taís Alves e trabalho como unhas desde os 15 anos. Ao longo dessa jornada, venho me aperfeiçoando para criar identidades visuais que elevam a autoestima da mulher. Acredito que cada mulher deve se inspirar no seu próprio estilo, no que a faz se sentir autêntica and poderosa. Meu design é um convite para que cada mulher se expresse com confiança, sem se prender ao gosto dos outros, mas se conectando com sua essência.</p>
+        <p>Olá, me chamo Taís Alves e trabalho como unhas desde os 15 anos. Ao longo dessa jornada, venho me aperfeiçoando para criar identidades visuais que elevam a autoestima da mulher. Acredito que cada mulher deve se inspirar no seu próprio estilo, no que a faz se sentir autêntica e poderosa. Meu design é um convite para que cada mulher se expresse com confiança, sem se prender ao gosto dos outros, mas se conectando com sua essência.</p>
       </div>
     </div>
   </section>
@@ -494,7 +508,7 @@ footer{
           </div>
           <div class="service-block-text">
             <h4>Fibra de Vidro</h4>
-            <p>A fibra de vidro para unhas é um material composto por filamentos finos que, quando aplicados com um gel ou resina, reforçam a estrutura da unha, proporcionando alongamento leve, resistente e natural.</p>
+            <p>A fibra de vidro para unhas é um material composto por filamentos finos que, quando aplicados com um gel ou resina, reforçam a estrutura da unha, proporcionando alongamento leve, resistente and natural.</p>
           </div>
         </div>
 
