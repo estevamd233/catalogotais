@@ -62,11 +62,10 @@ a{
   margin: 0 auto;
   padding: 0 24px;
   position: relative;
-  z-index: 10; /* Garante que o conteúdo fique por cima da animação de fundo */
+  z-index: 10;
 }
 
-/* ANIMAÇÃO DE FUNDO PREMIUM (EFEITO RESPIRAÇÃO EM FADE NOS QUATRO CANTOS)
-*/
+/* ANIMAÇÃO DE FUNDO PREMIUM (EFEITO RESPIRAÇÃO EM FADE NOS QUATRO CANTOS) */
 .bg-glow {
   position: fixed;
   top: 0;
@@ -88,7 +87,6 @@ a{
   opacity: 0.5;
 }
 
-/* Posicionamento nos 4 cantos */
 .orb-tl { top: -100px; left: -100px; animation: pulseGlow 10s ease-in-out infinite alternate; }
 .orb-tr { top: -100px; right: -100px; animation: pulseGlow 14s ease-in-out infinite alternate-reverse; }
 .orb-bl { bottom: -100px; left: -100px; animation: pulseGlow 12s ease-in-out infinite alternate-reverse; }
@@ -118,8 +116,8 @@ a{
   justify-content: center;
   position: relative;
   overflow: hidden;
-  padding: 60px 0 20px;
-  background: transparent; /* Removido o gradiente fixo para mesclar com o fundo animado */
+  padding: 60px 0 0px;
+  background: transparent;
 }
 
 .hero-content{
@@ -200,16 +198,37 @@ a{
   padding: 0 15px;
 }
 
-/* CONTAINER DA LOGO INTEGRADA */
-.brand-logo-container {
-  text-align: center;
-  padding: 10px 0 0;
-  margin-top: 15px;
+/* DIVISÓRIA COM LINHAS INFINITAS LATERAIS (ELEGANTE E DESIGN JUSTO) */
+.brand-logo-divider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 30px 0 10px;
 }
 
-.brand-logo-container img {
-  max-width: 240px;
-  margin: 0 auto;
+.brand-logo-divider-container::before,
+.brand-logo-divider-container::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rosa-dark);
+  opacity: 0.35; /* Linha sutil para não brigar com a logo */
+}
+
+.brand-logo-inner {
+  padding: 0 20px;
+  flex-shrink: 0;
+}
+
+.brand-logo-inner img {
+  max-width: 180px; /* Reduzido levemente para enquadrar com extrema elegância entre as linhas */
+  height: auto;
   display: block;
 }
 
@@ -271,7 +290,7 @@ a{
 
 /* QUEM SOU EU */
 .about-section {
-  padding: 25px 0 40px;
+  padding: 15px 0 40px; /* Ajustado para abraçar a logo divisória perfeitamente */
 }
 
 .about{
@@ -487,13 +506,15 @@ footer{
       <div class="hero-role">Nail Designer</div>
 
       <p>Alongamentos de alto padrão, esmaltação e cuidados premium que transformam sua autoestima com delicadeza e sofisticação.</p>
-      
-      <div class="brand-logo-container">
-        <img src="page12.png" alt="Taís Alves Nails Designer Logo">
-      </div>
     </div>
   </div>
 </section>
+
+<div class="brand-logo-divider-container">
+  <div class="brand-logo-inner">
+    <img src="page12.png" alt="Taís Alves Nails Designer Logo">
+  </div>
+</div>
 
 <section class="section about-section">
   <div class="container">
@@ -521,7 +542,7 @@ footer{
           </div>
           <div class="service-block-text">
             <h4>Fibra de Vidro</h4>
-            <p>A fibra de vidro para unhas é um material composto por filamentos finos que, quando aplicados com um gel ou resina, reforçam a estrutura da unha, proporcionando alongamento leve, resistente e natural. É uma técnica duradoura, ideal para quem busca uma alternativa mais fina e flexível, com acabamento impecável e menor risco de quebra.</p>
+            <p>A fibra de vidro para unhas é um material composto por filamentos finos que, quando aplicados com um gel ou resina, reforçam a estrutura da unha, proporcionando alongamento leve, resistente and natural. É uma técnica duradoura, ideal para quem busca uma alternativa mais fina e flexível, com acabamento impecável e menor risco de quebra.</p>
           </div>
         </div>
 
@@ -572,7 +593,7 @@ footer{
           </div>
           <div class="service-block-text">
             <h4>Pedicure Premium</h4>
-            <p>Cuidado meticuloso focado na saúde e na estética das unhas dos pés, oferecendo corte correto, remoção higiênica de cutículas e acabamento limho.</p>
+            <p>Cuidado meticuloso focado na saúde e na estética das unhas dos pés, oferecendo corte correto, remoção higiênica de cutículas e acabamento limpo.</p>
           </div>
         </div>
 
