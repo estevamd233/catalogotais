@@ -157,51 +157,35 @@ a{
   padding: 0 10px;
 }
 
-/* DIVISÓRIA DA LOGO COM LINHAS INFINITAS E CONEXÃO DIRETAMENTE NA BORDA */
+/* DIVISÓRIA DA LOGO COM LINHAS INFINITAS (FLEXBOX SEGURO) */
 .brand-logo-divider-container {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: auto;
+  margin-left: -24px;  /* Anula o padding do container para encostar nos cantos da tela */
+  margin-right: -24px; /* Anula o padding do container para encostar nos cantos da tela */
   padding: 40px 0 25px;
 }
 
-/* Linha da Esquerda: vai do canto 0 da tela até a borda esquerda da logo */
-.brand-logo-divider-container::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: calc(50% + 70px); /* Metade da tela + metade da largura da logo */
-  height: 4px;
-  background: var(--rosa-medium);
-  opacity: 0.65;
-  z-index: 1;
-}
-
-/* Linha da Direita: vai da borda direita da logo até o canto final da tela */
+.brand-logo-divider-container::before,
 .brand-logo-divider-container::after {
   content: "";
-  position: absolute;
-  right: 0;
-  left: calc(50% + 70px); /* Metade da tela + metade da largura da logo */
-  height: 4px;
+  flex: 1; /* Faz as linhas esticarem infinitamente até o canto da tela */
+  height: 4px; 
   background: var(--rosa-medium);
   opacity: 0.65;
-  z-index: 1;
 }
 
 .brand-logo-inner {
-  position: relative;
-  z-index: 2;
-  padding: 0;
+  padding: 0; 
+  flex-shrink: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .brand-logo-inner img {
-  width: 140px; /* Reduzido para ficar menor que a foto de perfil */
+  width: 135px; /* Logo menor que a foto de perfil (190px) */
   height: auto;
   display: block;
 }
