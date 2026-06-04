@@ -35,7 +35,7 @@ html, body {
   width: 100%;
   max-width: 100%;
   background: var(--bg);
-  overflow-x: hidden; /* Garante que não haja rolagem lateral */
+  overflow-x: hidden; /* Evita qualquer quebra ou rolagem para os lados */
 }
 
 body{
@@ -65,7 +65,7 @@ a{
   z-index: 10;
 }
 
-/* DEGRADÊS DE FUNDO ESTÁTICOS - OTIMIZADOS PARA CELULAR */
+/* DEGRADÊS DE FUNDO ESTÁTICOS */
 .bg-glow {
   position: absolute;
   top: 0;
@@ -161,20 +161,22 @@ a{
   padding: 0 10px;
 }
 
-/* DIVISÓRIA DA LOGO BLINDADA PARA NÃO QUEBRAR NO CELULAR */
+/* DIVISÓRIA DA LOGO COM LINHAS INFINITAS (MÉTODO FLEXBOX SEGURO) */
 .brand-logo-divider-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  padding: 30px 0 15px;
+  width: auto;
+  margin-left: -24px;  /* Anula o padding lateral do container colando na tela */
+  margin-right: -24px; /* Anula o padding lateral do container colando na tela */
+  padding: 40px 0 25px;
   gap: 0;
 }
 
 .brand-logo-divider-container::before,
 .brand-logo-divider-container::after {
   content: "";
-  flex: 1;
+  flex: 1; /* Faz as linhas esticarem até o limite absoluto das bordas */
   height: 4px; 
   background: var(--rosa-medium);
   opacity: 0.65;
@@ -188,7 +190,7 @@ a{
 }
 
 .brand-logo-inner img {
-  width: 220px; 
+  width: 140px; /* Logo reduzida para harmonia perfeita com a foto de perfil */
   max-width: 55vw; 
   height: auto;
   display: block;
@@ -249,7 +251,7 @@ a{
   gap: 14px;
 }
 
-/* QUEM SOU EU - CORRIGIDO E SEGURO */
+/* QUEM SOU EU */
 .about-section {
   padding: 10px 0 30px;
 }
@@ -419,199 +421,10 @@ a{
 }
 
 /* FOOTER */
-footer{
-  padding: 28px 0;
-  text-align: center;
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #b2a4a4;
-  border-top: 1px solid var(--rosa-soft);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
-
-.credits {
-  font-size: 8px;
-  letter-spacing: 1px;
-  color: var(--rosa-dark);
-}
-</style>
-</head>
-
-<body>
-
-<div class="bg-glow">
-  <div class="glow-orb orb-tr"></div>
-  <div class="glow-orb orb-bl"></div>
-</div>
-
-<div class="container">
-
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-img">
-        <img src="F1C.JPG" alt="Taís Alves">
-      </div>
-
-      <div class="hero-name-container">
-        <h1 class="hero-name">Taís Alves</h1>
-        <svg class="brush-stroke" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5 12C35 5 85 4 115 7C145 10 175 14 195 9" stroke="#e8b8c2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-
-      <div class="hero-role">Nail Designer</div>
-      <p>Alongamentos de alto padrão, esmaltação e cuidados premium que transformam sua autoestima com delicadeza e sofisticação.</p>
-    </div>
-  </section>
-
-  <div class="brand-logo-divider-container">
-    <div class="brand-logo-inner">
-      <img src="page12.png" alt="Taís Alves Nails Designer Logo">
-    </div>
-  </div>
-
-  <section class="section about-section">
-    <div class="about">
-      <div class="about-image">
-        <img src="F2Q.JPG" alt="Taís Alves">
-      </div>
-      <div class="about-text">
-        <h3>Quem sou eu?</h3>
-        <p>Olá, me chamo Taís Alves e trabalho como unhas desde os 15 anos. Ao longo dessa jornada, venho me aperfeiçoando para criar identidades visuais que elevam a autoestima da mulher. Acredito que cada mulher deve se inspirar no seu próprio estilo, no que a faz se sentir autêntica e poderosa. Meu design é um convite para que cada mulher se expresse com confiança, sem se prender ao gosto dos outros, mas se conectando com sua essência.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <button class="accordion-trigger" aria-expanded="false">Procedimentos</button>
-    <div class="accordion-content">
-      <div class="accordion-wrapper">
-
-        <div class="service-block">
-          <div class="service-block-image">
-            <img src="alonf.jpg" alt="Fibra de Vidro">
-          </div>
-          <div class="service-block-text">
-            <h4>Fibra de Vidro</h4>
-            <p>A fibra de vidro para unhas é um material composto por filamentos finos que, quando aplicados com um gel ou resina, reforçam a estrutura da unha, proporcionando alongamento leve, resistente e natural.</p>
-          </div>
-        </div>
-
-        <div class="service-block">
-          <div class="service-block-image">
-            <img src="blida.jpg" alt="Blindagem Diamond">
-          </div>
-          <div class="service-block-text">
-            <h4>Blindagem Diamond</h4>
-            <p>Camada protetora ideal para blindar suas unhas naturais contra quebras estruturais e rachaduras, promovendo brilho uniforme por muito mais tempo.</p>
-          </div>
-        </div>
-
-        <div class="service-block">
-          <div class="service-block-image">
-            <img src="unhasgel.jpg" alt="Esmaltação em Gel / Molde F1">
-          </div>
-          <div class="service-block-text">
-            <h4>Esmaltação em Gel</h4>
-            <p>O molde F1 para unhas em gel é um sistema de suporte técnico de alta precisão, desenvolvido para garantir o alongamento exato e simétrico das unhas.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <button class="accordion-trigger" aria-expanded="false">Estética dos Pés</button>
-    <div class="accordion-content">
-      <div class="accordion-wrapper">
-
-        <div class="service-block">
-          <div class="service-block-image">
-            <img src="spap.jpg" alt="SPA dos Pés">
-          </div>
-          <div class="service-block-text">
-            <h4>SPA dos Pés</h4>
-            <p>Tratamento relaxante com esfoliação, imersão em água morna e hidratação profunda para remover calosidades e renovar totalmente a pele.</p>
-          </div>
-        </div>
-
-        <div class="service-block">
-          <div class="service-block-image">
-            <img src="Premium.png" alt="Pedicure Premium">
-          </div>
-          <div class="service-block-text">
-            <h4>Pedicure Premium</h4>
-            <p>Cuidado meticuloso focado na saúde e na estética das unhas dos pés, oferecendo corte correto, remoção higiênica de cutículas e acabamento limpo.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <button class="accordion-trigger" aria-expanded="false">Manutenções</button>
-    <div class="accordion-content">
-      <div class="accordion-wrapper">
-
-        <div class="service-block">
-          <div class="service-block-image">
-            <img src="along.png" alt="Alongamento">
-          </div>
-          <div class="service-block-text">
-            <h5>Cuidados</h5>
-            <h4>Alongamento</h4>
-            <p>A manutenção deve ser realizada entre 15 e 20 dias para preservar resistência e beleza.</p>
-          </div>
-        </div>
-
-        <div class="service-block">
-          <div class="service-block-image">
-            <img src="cuidados-2.png" alt="Esmaltação em Gel">
-          </div>
-          <div class="service-block-text">
-            <h5>Cuidados</h5>
-            <h4>Esmaltação em Gel</h4>
-            <p>Evite remover em casa para não comprometer a saúde das unhas naturais.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="section payment-section">
-    <div class="payment-box">
-      <p style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--rosa-dark); font-weight: 500; text-align: center;">Formas de pagamento</p>
-      
-      <div class="payment-list">
-        <div class="payment-item">Pix</div>
-        <div class="payment-item">Crédito</div>
-        <div class="payment-item">Débito</div>
-      </div>
-
-      <div class="socials">
-        <a href="https://wa.me/558299385421" class="btn-whatsapp" target="_blank">Agendar via WhatsApp</a>
-        <a href="https://www.instagram.com/taisalves.naildesigner?utm_source=qr" class="btn-instagram" target="_blank">Acompanhar no Instagram</a>
-      </div>
-
-      <div class="address">
-        <strong>Taís Alves Studio</strong><br>
-        Rua Maria Leão de Melo, 11<br>
-        Bairro Massaranduba
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <span>© <span id="year"></span> • Taís Alves Studio</span>
-    <span class="credits">Página criada por Flow Páginas</span>
-  </footer>
+<footer>
+  <span>© <span id="year"></span> • Taís Alves Studio</span>
+  <span class="credits">Página criada por Flow Páginas</span>
+</footer>
 
 </div>
 
