@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
 
 <title>Taís Alves — Nail Designer</title>
 
@@ -31,16 +31,16 @@
   box-sizing:border-box;
 }
 
-html{
-  scroll-behavior:smooth;
-  -webkit-text-size-adjust: 100%;
+html, body {
+  width: 100%;
+  max-width: 100%;
+  background: var(--bg);
+  overflow-x: hidden; /* Garante que não haja rolagem lateral */
 }
 
 body{
-  background: var(--bg);
   font-family: 'Inter', sans-serif;
   color: var(--texto-main);
-  overflow-x: hidden;
   line-height: 1.5;
   position: relative;
 }
@@ -65,13 +65,13 @@ a{
   z-index: 10;
 }
 
-/* DEGRADÊS DE FUNDO ESTÁTICOS */
+/* DEGRADÊS DE FUNDO ESTÁTICOS - OTIMIZADOS PARA CELULAR */
 .bg-glow {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   z-index: 1;
   overflow: hidden;
@@ -79,43 +79,35 @@ a{
 
 .glow-orb {
   position: absolute;
-  width: 350px;
-  height: 350px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   background: var(--rosa-soft);
-  filter: blur(80px);
+  filter: blur(70px);
   opacity: 0.6;
 }
 
-.orb-tr { top: -120px; right: -120px; } 
-.orb-bl { bottom: -120px; left: -120px; } 
+.orb-tr { top: -60px; right: -100px; } 
+.orb-bl { bottom: 200px; left: -100px; } 
 
 /* HERO SECTION */
 .hero{
-  min-height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  padding: 60px 0 0px;
+  padding: 50px 0 10px;
   background: transparent;
+  text-align: center;
 }
 
 .hero-content{
-  position: relative;
-  z-index: 2;
-  text-align: center;
   width: 100%;
 }
 
 .hero-img{
-  width: 200px;
-  height: 200px;
+  width: 190px;
+  height: 190px;
   border-radius: 50%;
   overflow: hidden;
   margin: 0 auto;
-  border: 8px solid var(--branco);
+  border: 6px solid var(--branco);
   box-shadow: var(--shadow-md);
   position: relative;
 }
@@ -130,12 +122,12 @@ a{
 .hero-name-container {
   display: inline-block;
   position: relative;
-  margin-top: 24px;
+  margin-top: 20px;
 }
 
 .hero-name{
   font-family: 'Cormorant Garamond', serif;
-  font-size: 50px;
+  font-size: 46px;
   line-height: 0.95;
   font-weight: 700;
   color: var(--texto-main);
@@ -144,27 +136,16 @@ a{
 
 .brush-stroke {
   position: absolute;
-  bottom: -10px;
+  bottom: -8px;
   left: 50%;
   transform: translateX(-50%);
-  width: 160px;
+  width: 150px;
   height: auto;
   pointer-events: none;
 }
 
-.brush-line {
-  stroke-dasharray: 500;
-  stroke-dashoffset: 500;
-  animation: drawStroke 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  animation-delay: 0.3s;
-}
-
-@keyframes drawStroke {
-  to { stroke-dashoffset: 0; }
-}
-
 .hero-role{
-  margin-top: 20px;
+  margin-top: 18px;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 5px;
@@ -173,25 +154,21 @@ a{
 }
 
 .hero p{
-  margin-top: 16px;
+  margin-top: 14px;
   font-size: 14px;
   line-height: 1.6;
   color: var(--texto-muted);
-  padding: 0 15px;
+  padding: 0 10px;
 }
 
-/* DIVISÓRIA DA LOGO COM CONEXÃO PERFEITA NAS LATERAIS */
+/* DIVISÓRIA DA LOGO BLINDADA PARA NÃO QUEBRAR NO CELULAR */
 .brand-logo-divider-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  padding: 40px 0 20px;
+  width: 100%;
+  padding: 30px 0 15px;
+  gap: 0;
 }
 
 .brand-logo-divider-container::before,
@@ -204,28 +181,29 @@ a{
 }
 
 .brand-logo-inner {
-  padding: 0; /* Removido o recuo para permitir que as linhas toquem as bordas da logo */
+  padding: 0; 
   flex-shrink: 0;
   display: flex;
   align-items: center;
 }
 
 .brand-logo-inner img {
-  width: 240px; /* Logo aumentada para maior destaque */
+  width: 220px; 
+  max-width: 55vw; 
   height: auto;
   display: block;
 }
 
 /* SECTIONS E ACORDION */
 .section{
-  padding: 12px 0;
+  padding: 10px 0;
   position: relative;
 }
 
 .accordion-trigger {
   width: 100%;
   border: none;
-  padding: 18px 28px;
+  padding: 16px 24px;
   border-radius: 50px;
   background: linear-gradient(135deg, var(--rosa-medium), #d591a2);
   color: var(--branco);
@@ -233,25 +211,25 @@ a{
   justify-content: space-between;
   align-items: center;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 10px 25px rgba(213,145,162, 0.3);
+  box-shadow: 0 8px 22px rgba(213,145,162, 0.25);
   transition: all 0.3s ease;
+  outline: none;
 }
 
 .accordion-trigger::after {
   content: '+';
   font-family: 'Inter', sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 400;
   color: var(--branco);
-  transition: transform 0.3s ease;
 }
 
 .accordion-trigger.active {
   background: linear-gradient(135deg, #d591a2, var(--rosa-dark));
-  box-shadow: 0 4px 15px rgba(213,145,162, 0.2);
+  box-shadow: 0 4px 12px rgba(213,145,162, 0.15);
 }
 
 .accordion-trigger.active::after {
@@ -262,29 +240,29 @@ a{
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  background: transparent;
 }
 
 .accordion-wrapper {
-  padding: 20px 4px;
+  padding: 16px 2px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
-/* QUEM SOU EU */
+/* QUEM SOU EU - CORRIGIDO E SEGURO */
 .about-section {
-  padding: 15px 0 40px;
+  padding: 10px 0 30px;
 }
 
 .about{
   background: var(--branco);
-  padding: 24px;
-  border-radius: 28px;
+  padding: 24px 20px;
+  border-radius: 24px;
   box-shadow: var(--shadow-sm);
   display: flex;
-  flex-direction: row;
+  flex-direction: column; 
   align-items: center;
+  text-align: center;
   gap: 20px;
 }
 
@@ -293,42 +271,44 @@ a{
 }
 
 .about-image img{
-  width: 160px; /* Levemente mais larga */
-  height: 210px; /* Levemente mais alta - Proporção elegante preservada */
+  width: 165px; 
+  height: 220px; 
   border-radius: 20px;
   object-fit: cover;
   object-position: center 20%;
+  box-shadow: var(--shadow-sm);
 }
 
 .about-text{
-  flex: 1;
+  width: 100%;
 }
 
 .about-text h3{
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--rosa-dark);
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 .about-text p{
-  font-size: 12.5px;
-  line-height: 1.5;
+  font-size: 13px;
+  line-height: 1.6;
   color: var(--texto-muted);
+  text-align: justify;
 }
 
 /* CONTAINER PADRÃO DE SERVIÇOS */
 .service-block {
   background: var(--branco);
-  padding: 20px;
-  border-radius: 28px;
+  padding: 16px;
+  border-radius: 24px;
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 
 .service-block-image {
@@ -336,9 +316,9 @@ a{
 }
 
 .service-block-image img {
-  width: 120px;
-  height: 160px;
-  border-radius: 20px;
+  width: 100px;
+  height: 135px;
+  border-radius: 16px;
   object-fit: cover;
 }
 
@@ -348,17 +328,17 @@ a{
 
 .service-block-text h4 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 24px;
+  font-size: 21px;
   font-weight: 700;
   color: var(--texto-main);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   line-height: 1.2;
 }
 
 .service-block-text h5 {
   font-size: 9px;
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--rosa-dark);
   margin-bottom: 2px;
@@ -366,100 +346,97 @@ a{
 
 .service-block-text p {
   font-size: 12px;
-  line-height: 1.5;
+  line-height: 1.45;
   color: var(--texto-muted);
 }
 
 /* CONTATOS E PAGAMENTO */
 .payment-section {
-  padding: 30px 0;
+  padding: 20px 0;
 }
 
 .payment-box{
   background: var(--branco);
-  padding: 32px 24px;
-  border-radius: 32px;
+  padding: 28px 20px;
+  border-radius: 28px;
   box-shadow: var(--shadow-md);
 }
 
 .payment-list{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  gap: 6px;
   margin-top: 10px;
 }
 
 .payment-item{
-  padding: 12px 5px;
-  border-radius: 14px;
+  padding: 10px 4px;
+  border-radius: 12px;
   background: var(--bg-sub);
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
   color: var(--texto-muted);
   text-align: center;
 }
 
 .socials{
-  margin-top: 32px;
+  margin-top: 26px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .socials a{
-  padding: 18px;
+  padding: 16px;
   border-radius: 50px;
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   text-align: center;
-  transition: all 0.2s ease;
 }
 
 .btn-instagram{
   background: var(--bg-sub);
   color: #5c4348;
-  border: 1px solid rgba(179,140,149,0.15);
+  border: 1px solid rgba(179,140,149,0.12);
 }
 
 .btn-whatsapp{
   background: linear-gradient(135deg, #dba0ad, var(--rosa-dark));
   color: var(--branco);
-  box-shadow: 0 8px 20px rgba(179,140,149,0.3);
+  box-shadow: 0 6px 18px rgba(179,140,149,0.25);
 }
 
 .address{
-  margin-top: 28px;
+  margin-top: 24px;
   font-size: 13px;
-  line-height: 1.6;
+  line-height: 1.5;
   color: var(--texto-muted);
   text-align: center;
 }
 
 /* FOOTER */
 footer{
-  padding: 32px 0;
+  padding: 28px 0;
   text-align: center;
   font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   color: #b2a4a4;
   border-top: 1px solid var(--rosa-soft);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
 }
 
 .credits {
-  font-size: 8.5px;
-  letter-spacing: 1.5px;
+  font-size: 8px;
+  letter-spacing: 1px;
   color: var(--rosa-dark);
-  margin-top: 2px;
 }
 </style>
 </head>
@@ -471,8 +448,9 @@ footer{
   <div class="glow-orb orb-bl"></div>
 </div>
 
-<section class="hero">
-  <div class="container">
+<div class="container">
+
+  <section class="hero">
     <div class="hero-content">
       <div class="hero-img">
         <img src="F1C.JPG" alt="Taís Alves">
@@ -481,25 +459,22 @@ footer{
       <div class="hero-name-container">
         <h1 class="hero-name">Taís Alves</h1>
         <svg class="brush-stroke" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path class="brush-line" d="M5 12C35 5 85 4 115 7C145 10 175 14 195 9" stroke="#e8b8c2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M5 12C35 5 85 4 115 7C145 10 175 14 195 9" stroke="#e8b8c2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
 
       <div class="hero-role">Nail Designer</div>
-
       <p>Alongamentos de alto padrão, esmaltação e cuidados premium que transformam sua autoestima com delicadeza e sofisticação.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="brand-logo-divider-container">
-  <div class="brand-logo-inner">
-    <img src="page12.png" alt="Taís Alves Nails Designer Logo">
+  <div class="brand-logo-divider-container">
+    <div class="brand-logo-inner">
+      <img src="page12.png" alt="Taís Alves Nails Designer Logo">
+    </div>
   </div>
-</div>
 
-<section class="section about-section">
-  <div class="container">
+  <section class="section about-section">
     <div class="about">
       <div class="about-image">
         <img src="F2Q.JPG" alt="Taís Alves">
@@ -509,11 +484,9 @@ footer{
         <p>Olá, me chamo Taís Alves e trabalho como unhas desde os 15 anos. Ao longo dessa jornada, venho me aperfeiçoando para criar identidades visuais que elevam a autoestima da mulher. Acredito que cada mulher deve se inspirar no seu próprio estilo, no que a faz se sentir autêntica e poderosa. Meu design é um convite para que cada mulher se expresse com confiança, sem se prender ao gosto dos outros, mas se conectando com sua essência.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section">
-  <div class="container">
+  <section class="section">
     <button class="accordion-trigger" aria-expanded="false">Procedimentos</button>
     <div class="accordion-content">
       <div class="accordion-wrapper">
@@ -524,7 +497,7 @@ footer{
           </div>
           <div class="service-block-text">
             <h4>Fibra de Vidro</h4>
-            <p>A fibra de vidro para unhas é um material composto por filamentos finos que, quando aplicados com um gel ou resina, reforçam a estrutura da unha, proporcionando alongamento leve, resistente e natural. É uma técnica duradoura, ideal para quem busca uma alternativa mais fina e flexível, com acabamento impecável e menor risco de quebra.</p>
+            <p>A fibra de vidro para unhas é um material composto por filamentos finos que, quando aplicados com um gel ou resina, reforçam a estrutura da unha, proporcionando alongamento leve, resistente e natural.</p>
           </div>
         </div>
 
@@ -544,17 +517,15 @@ footer{
           </div>
           <div class="service-block-text">
             <h4>Esmaltação em Gel</h4>
-            <p>O molde F1 para unhas em gel é um sistema de suporte técnico de alta precisão, desenvolvido para garantir o alongamento exato e simétrico das unhas. Ele é feito de material de alta qualidade, permitindo uma aderência segura e um controle preciso do formato. Ideal para profissionais que buscam um resultado duradouro, natural e com alta performance.</p>
+            <p>O molde F1 para unhas em gel é um sistema de suporte técnico de alta precisão, desenvolvido para garantir o alongamento exato e simétrico das unhas.</p>
           </div>
         </div>
 
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section">
-  <div class="container">
+  <section class="section">
     <button class="accordion-trigger" aria-expanded="false">Estética dos Pés</button>
     <div class="accordion-content">
       <div class="accordion-wrapper">
@@ -581,11 +552,9 @@ footer{
 
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section">
-  <div class="container">
+  <section class="section">
     <button class="accordion-trigger" aria-expanded="false">Manutenções</button>
     <div class="accordion-content">
       <div class="accordion-wrapper">
@@ -614,41 +583,37 @@ footer{
 
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section payment-section">
-  <div class="container">
-    <div class="payment">
-      <div class="payment-box">
-        
-        <p style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--rosa-dark); font-weight: 500; text-align: center;">Formas de pagamento</p>
-        
-        <div class="payment-list">
-          <div class="payment-item">Pix</div>
-          <div class="payment-item">Crédito</div>
-          <div class="payment-item">Débito</div>
-        </div>
+  <section class="section payment-section">
+    <div class="payment-box">
+      <p style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--rosa-dark); font-weight: 500; text-align: center;">Formas de pagamento</p>
+      
+      <div class="payment-list">
+        <div class="payment-item">Pix</div>
+        <div class="payment-item">Crédito</div>
+        <div class="payment-item">Débito</div>
+      </div>
 
-        <div class="socials">
-          <a href="https://wa.me/558299385421" class="btn-whatsapp" target="_blank">Agendar via WhatsApp</a>
-          <a href="https://www.instagram.com/taisalves.naildesigner?utm_source=qr" class="btn-instagram" target="_blank">Acompanhar no Instagram</a>
-        </div>
+      <div class="socials">
+        <a href="https://wa.me/558299385421" class="btn-whatsapp" target="_blank">Agendar via WhatsApp</a>
+        <a href="https://www.instagram.com/taisalves.naildesigner?utm_source=qr" class="btn-instagram" target="_blank">Acompanhar no Instagram</a>
+      </div>
 
-        <div class="address">
-          <strong>Taís Alves Studio</strong><br>
-          Rua Maria Leão de Melo, 11<br>
-          Bairro Massaranduba
-        </div>
+      <div class="address">
+        <strong>Taís Alves Studio</strong><br>
+        Rua Maria Leão de Melo, 11<br>
+        Bairro Massaranduba
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <span>© <span id="year"></span> • Taís Alves Studio</span>
-  <span class="credits">Página criada por Flow Páginas</span>
-</footer>
+  <footer>
+    <span>© <span id="year"></span> • Taís Alves Studio</span>
+    <span class="credits">Página criada por Flow Páginas</span>
+  </footer>
+
+</div>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
