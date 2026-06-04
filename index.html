@@ -65,7 +65,7 @@ a{
   z-index: 10;
 }
 
-/* ANIMAÇÃO DE FUNDO PREMIUM (EFEITO RESPIRAÇÃO EM FADE NOS QUATRO CANTOS) */
+/* DEGRADÊS DE FUNDO 100% ESTÁTICOS E ULTRA LEVES (SEM COMPUTAÇÃO DINÂMICA) */
 .bg-glow {
   position: fixed;
   top: 0;
@@ -79,34 +79,17 @@ a{
 
 .glow-orb {
   position: absolute;
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
   background: var(--rosa-soft);
-  filter: blur(60px);
-  opacity: 0.5;
+  filter: blur(80px);
+  opacity: 0.6;
 }
 
-.orb-tl { top: -100px; left: -100px; animation: pulseGlow 10s ease-in-out infinite alternate; }
-.orb-tr { top: -100px; right: -100px; animation: pulseGlow 14s ease-in-out infinite alternate-reverse; }
-.orb-bl { bottom: -100px; left: -100px; animation: pulseGlow 12s ease-in-out infinite alternate-reverse; }
-.orb-br { bottom: -100px; right: -100px; animation: pulseGlow 8s ease-in-out infinite alternate; }
-
-@keyframes pulseGlow {
-  0% {
-    transform: scale(0.8);
-    opacity: 0.3;
-    background: #f8e7eb;
-  }
-  50% {
-    background: #fbf1f0;
-  }
-  100% {
-    transform: scale(1.3);
-    opacity: 0.7;
-    background: #e8b8c2;
-  }
-}
+/* Apenas 2 pontos fixos de cor estrategicamente posicionados */
+.orb-tr { top: -120px; right: -120px; } /* Canto superior direito (Próximo ao Perfil) */
+.orb-bl { bottom: -120px; left: -120px; } /* Canto inferior esquerdo (Rodapé) */
 
 /* HERO SECTION */
 .hero{
@@ -198,7 +181,7 @@ a{
   padding: 0 15px;
 }
 
-/* DIVISÓRIA COM LINHAS INFINITAS LATERAIS (ELEGANTE E DESIGN JUSTO) */
+/* DIVISÓRIA COM LINHA LATERAIS GROSSAS E MODERNAS (ESTILO INFINITO) */
 .brand-logo-divider-container {
   display: flex;
   align-items: center;
@@ -209,25 +192,25 @@ a{
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  padding: 30px 0 10px;
+  padding: 40px 0 20px;
 }
 
 .brand-logo-divider-container::before,
 .brand-logo-divider-container::after {
   content: "";
   flex: 1;
-  height: 1px;
-  background: var(--rosa-dark);
-  opacity: 0.35; /* Linha sutil para não brigar com a logo */
+  height: 4px; /* Linha mais grossa para a nova proposta de estética moderna */
+  background: var(--rosa-medium);
+  opacity: 0.65;
 }
 
 .brand-logo-inner {
-  padding: 0 20px;
+  padding: 0 25px;
   flex-shrink: 0;
 }
 
 .brand-logo-inner img {
-  max-width: 180px; /* Reduzido levemente para enquadrar com extrema elegância entre as linhas */
+  max-width: 190px;
   height: auto;
   display: block;
 }
@@ -290,7 +273,7 @@ a{
 
 /* QUEM SOU EU */
 .about-section {
-  padding: 15px 0 40px; /* Ajustado para abraçar a logo divisória perfeitamente */
+  padding: 15px 0 40px;
 }
 
 .about{
@@ -482,13 +465,13 @@ footer{
 
 <body>
 
+<!-- ELEMENTOS DO GLOW DE FUNDO - APENAS 2 FICTÍCIOS E ESTÁTICOS -->
 <div class="bg-glow">
-  <div class="glow-orb orb-tl"></div>
   <div class="glow-orb orb-tr"></div>
   <div class="glow-orb orb-bl"></div>
-  <div class="glow-orb orb-br"></div>
 </div>
 
+<!-- HERO -->
 <section class="hero">
   <div class="container">
     <div class="hero-content">
@@ -510,12 +493,14 @@ footer{
   </div>
 </section>
 
+<!-- DIVISÓRIA DA LOGO COM LINHA INTEGRADA MODERNA MAIS GROSSA -->
 <div class="brand-logo-divider-container">
   <div class="brand-logo-inner">
     <img src="page12.png" alt="Taís Alves Nails Designer Logo">
   </div>
 </div>
 
+<!-- QUEM SOU EU -->
 <section class="section about-section">
   <div class="container">
     <div class="about">
@@ -530,22 +515,25 @@ footer{
   </div>
 </section>
 
+<!-- SEÇÃO PROCEDIMENTOS MÃOS -->
 <section class="section">
   <div class="container">
     <button class="accordion-trigger" aria-expanded="false">Procedimentos</button>
     <div class="accordion-content">
       <div class="accordion-wrapper">
 
+        <!-- ITEM 1: Fibra de Vidro -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="alonf.jpg" alt="Fibra de Vidro">
           </div>
           <div class="service-block-text">
             <h4>Fibra de Vidro</h4>
-            <p>A fibra de vidro para unhas é um material composto por filamentos finos que, quando aplicados com um gel ou resina, reforçam a estrutura da unha, proporcionando alongamento leve, resistente and natural. É uma técnica duradoura, ideal para quem busca uma alternativa mais fina e flexível, com acabamento impecável e menor risco de quebra.</p>
+            <p>A fibra de vidro para unhas é um material composto por filamentos finos que, quando aplicados com um gel ou resina, reforçam a estrutura da unha, proporcionando alongamento leve, resistente e natural. É uma técnica duradoura, ideal para quem busca uma alternativa mais fina e flexível, com acabamento impecável e menor risco de quebra.</p>
           </div>
         </div>
 
+        <!-- ITEM 2: Blindagem Diamond -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="blida.jpg" alt="Blindagem Diamond">
@@ -556,6 +544,7 @@ footer{
           </div>
         </div>
 
+        <!-- ITEM 3: Esmaltação em Gel -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="unhasgel.jpg" alt="Esmaltação em Gel / Molde F1">
@@ -571,12 +560,14 @@ footer{
   </div>
 </section>
 
+<!-- SEÇÃO CUIDADOS COM OS PÉS -->
 <section class="section">
   <div class="container">
     <button class="accordion-trigger" aria-expanded="false">Estética dos Pés</button>
     <div class="accordion-content">
       <div class="accordion-wrapper">
 
+        <!-- ITEM 1: SPA dos Pés -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="spap.jpg" alt="SPA dos Pés">
@@ -587,6 +578,7 @@ footer{
           </div>
         </div>
 
+        <!-- ITEM 2: Pedicure Premium -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="Premium.png" alt="Pedicure Premium">
@@ -602,12 +594,14 @@ footer{
   </div>
 </section>
 
+<!-- SEÇÃO CUIDADOS & MANUTENÇÃO -->
 <section class="section">
   <div class="container">
     <button class="accordion-trigger" aria-expanded="false">Manutenções</button>
     <div class="accordion-content">
       <div class="accordion-wrapper">
 
+        <!-- ITEM 1: Alongamento -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="along.png" alt="Alongamento">
@@ -619,6 +613,7 @@ footer{
           </div>
         </div>
 
+        <!-- ITEM 2: Esmaltação em Gel -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="cuidados-2.png" alt="Esmaltação em Gel">
@@ -635,6 +630,7 @@ footer{
   </div>
 </section>
 
+<!-- CONTATO E PAGAMENTO -->
 <section class="section payment-section">
   <div class="container">
     <div class="payment">
@@ -663,6 +659,7 @@ footer{
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <span>© <span id="year"></span> • Taís Alves Studio</span>
   <span class="credits">Página criada por Flow Páginas</span>
@@ -688,4 +685,4 @@ footer{
 </script>
 
 </body>
-</html>
+</html
