@@ -42,6 +42,7 @@ body{
   color: var(--texto-main);
   overflow-x: hidden;
   line-height: 1.5;
+  position: relative;
 }
 
 img{
@@ -60,6 +61,53 @@ a{
   max-width: 480px;
   margin: 0 auto;
   padding: 0 24px;
+  position: relative;
+  z-index: 10; /* Garante que o conteúdo fique por cima da animação de fundo */
+}
+
+/* ANIMAÇÃO DE FUNDO PREMIUM (EFEITO RESPIRAÇÃO EM FADE NOS QUATRO CANTOS)
+*/
+.bg-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.glow-orb {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: var(--rosa-soft);
+  filter: blur(60px);
+  opacity: 0.5;
+}
+
+/* Posicionamento nos 4 cantos */
+.orb-tl { top: -100px; left: -100px; animation: pulseGlow 10s ease-in-out infinite alternate; }
+.orb-tr { top: -100px; right: -100px; animation: pulseGlow 14s ease-in-out infinite alternate-reverse; }
+.orb-bl { bottom: -100px; left: -100px; animation: pulseGlow 12s ease-in-out infinite alternate-reverse; }
+.orb-br { bottom: -100px; right: -100px; animation: pulseGlow 8s ease-in-out infinite alternate; }
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.3;
+    background: #f8e7eb;
+  }
+  50% {
+    background: #fbf1f0;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0.7;
+    background: #e8b8c2;
+  }
 }
 
 /* HERO SECTION */
@@ -71,20 +119,7 @@ a{
   position: relative;
   overflow: hidden;
   padding: 60px 0 20px;
-  background: linear-gradient(180deg, var(--branco) 0%, var(--bg) 100%);
-}
-
-.hero::before{
-  content: "";
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  background: var(--rosa-soft);
-  border-radius: 50%;
-  top: -100px;
-  right: -100px;
-  filter: blur(50px);
-  z-index: 1;
+  background: transparent; /* Removido o gradiente fixo para mesclar com o fundo animado */
 }
 
 .hero-content{
@@ -165,7 +200,7 @@ a{
   padding: 0 15px;
 }
 
-/* CONTAINER DA LOGO INTEGRADA (ENQUADRAMENTO JUSTO) */
+/* CONTAINER DA LOGO INTEGRADA */
 .brand-logo-container {
   text-align: center;
   padding: 10px 0 0;
@@ -236,7 +271,7 @@ a{
 
 /* QUEM SOU EU */
 .about-section {
-  padding: 25px 0 40px; /* Reduzido o padding do topo para enquadrar perfeitamente após a logo */
+  padding: 25px 0 40px;
 }
 
 .about{
@@ -428,7 +463,13 @@ footer{
 
 <body>
 
-<!-- HERO -->
+<div class="bg-glow">
+  <div class="glow-orb orb-tl"></div>
+  <div class="glow-orb orb-tr"></div>
+  <div class="glow-orb orb-bl"></div>
+  <div class="glow-orb orb-br"></div>
+</div>
+
 <section class="hero">
   <div class="container">
     <div class="hero-content">
@@ -447,7 +488,6 @@ footer{
 
       <p>Alongamentos de alto padrão, esmaltação e cuidados premium que transformam sua autoestima com delicadeza e sofisticação.</p>
       
-      <!-- LOGO INTEGRADA ABAIXO DO TEXTO DA FOTO DE PERFIL -->
       <div class="brand-logo-container">
         <img src="page12.png" alt="Taís Alves Nails Designer Logo">
       </div>
@@ -455,7 +495,6 @@ footer{
   </div>
 </section>
 
-<!-- QUEM SOU EU -->
 <section class="section about-section">
   <div class="container">
     <div class="about">
@@ -470,14 +509,12 @@ footer{
   </div>
 </section>
 
-<!-- SEÇÃO PROCEDIMENTOS MÃOS -->
 <section class="section">
   <div class="container">
     <button class="accordion-trigger" aria-expanded="false">Procedimentos</button>
     <div class="accordion-content">
       <div class="accordion-wrapper">
 
-        <!-- ITEM 1: Fibra de Vidro -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="alonf.jpg" alt="Fibra de Vidro">
@@ -488,7 +525,6 @@ footer{
           </div>
         </div>
 
-        <!-- ITEM 2: Blindagem Diamond -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="blida.jpg" alt="Blindagem Diamond">
@@ -499,7 +535,6 @@ footer{
           </div>
         </div>
 
-        <!-- ITEM 3: Esmaltação em Gel -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="unhasgel.jpg" alt="Esmaltação em Gel / Molde F1">
@@ -515,14 +550,12 @@ footer{
   </div>
 </section>
 
-<!-- SEÇÃO CUIDADOS COM OS PÉS -->
 <section class="section">
   <div class="container">
     <button class="accordion-trigger" aria-expanded="false">Estética dos Pés</button>
     <div class="accordion-content">
       <div class="accordion-wrapper">
 
-        <!-- ITEM 1: SPA dos Pés -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="spap.jpg" alt="SPA dos Pés">
@@ -533,14 +566,13 @@ footer{
           </div>
         </div>
 
-        <!-- ITEM 2: Pedicure Premium -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="Premium.png" alt="Pedicure Premium">
           </div>
           <div class="service-block-text">
             <h4>Pedicure Premium</h4>
-            <p>Cuidado meticuloso focado na saúde e na estética das unhas dos pés, oferecendo corte correto, remoção higiênica de cutículas e acabamento limpo.</p>
+            <p>Cuidado meticuloso focado na saúde e na estética das unhas dos pés, oferecendo corte correto, remoção higiênica de cutículas e acabamento limho.</p>
           </div>
         </div>
 
@@ -549,14 +581,12 @@ footer{
   </div>
 </section>
 
-<!-- SEÇÃO CUIDADOS & MANUTENÇÃO -->
 <section class="section">
   <div class="container">
     <button class="accordion-trigger" aria-expanded="false">Manutenções</button>
     <div class="accordion-content">
       <div class="accordion-wrapper">
 
-        <!-- ITEM 1: Alongamento -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="along.png" alt="Alongamento">
@@ -568,7 +598,6 @@ footer{
           </div>
         </div>
 
-        <!-- ITEM 2: Esmaltação em Gel -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="cuidados-2.png" alt="Esmaltação em Gel">
@@ -585,7 +614,6 @@ footer{
   </div>
 </section>
 
-<!-- CONTATO E PAGAMENTO -->
 <section class="section payment-section">
   <div class="container">
     <div class="payment">
@@ -614,7 +642,6 @@ footer{
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <span>© <span id="year"></span> • Taís Alves Studio</span>
   <span class="credits">Página criada por Flow Páginas</span>
