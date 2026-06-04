@@ -65,7 +65,7 @@ a{
   z-index: 10;
 }
 
-/* DEGRADÊS DE FUNDO 100% ESTÁTICOS E ULTRA LEVES (SEM COMPUTAÇÃO DINÂMICA) */
+/* DEGRADÊS DE FUNDO ESTÁTICOS */
 .bg-glow {
   position: fixed;
   top: 0;
@@ -87,9 +87,8 @@ a{
   opacity: 0.6;
 }
 
-/* Apenas 2 pontos fixos de cor estrategicamente posicionados */
-.orb-tr { top: -120px; right: -120px; } /* Canto superior direito (Próximo ao Perfil) */
-.orb-bl { bottom: -120px; left: -120px; } /* Canto inferior esquerdo (Rodapé) */
+.orb-tr { top: -120px; right: -120px; } 
+.orb-bl { bottom: -120px; left: -120px; } 
 
 /* HERO SECTION */
 .hero{
@@ -181,7 +180,7 @@ a{
   padding: 0 15px;
 }
 
-/* DIVISÓRIA COM LINHA LATERAIS GROSSAS E MODERNAS (ESTILO INFINITO) */
+/* DIVISÓRIA DA LOGO COM CONEXÃO PERFEITA NAS LATERAIS */
 .brand-logo-divider-container {
   display: flex;
   align-items: center;
@@ -199,18 +198,20 @@ a{
 .brand-logo-divider-container::after {
   content: "";
   flex: 1;
-  height: 4px; /* Linha mais grossa para a nova proposta de estética moderna */
+  height: 4px; 
   background: var(--rosa-medium);
   opacity: 0.65;
 }
 
 .brand-logo-inner {
-  padding: 0 25px;
+  padding: 0; /* Removido o recuo para permitir que as linhas toquem as bordas da logo */
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
 
 .brand-logo-inner img {
-  max-width: 190px;
+  width: 240px; /* Logo aumentada para maior destaque */
   height: auto;
   display: block;
 }
@@ -292,8 +293,8 @@ a{
 }
 
 .about-image img{
-  width: 140px;
-  height: 185px;
+  width: 160px; /* Levemente mais larga */
+  height: 210px; /* Levemente mais alta - Proporção elegante preservada */
   border-radius: 20px;
   object-fit: cover;
   object-position: center 20%;
@@ -465,13 +466,11 @@ footer{
 
 <body>
 
-<!-- ELEMENTOS DO GLOW DE FUNDO - APENAS 2 FICTÍCIOS E ESTÁTICOS -->
 <div class="bg-glow">
   <div class="glow-orb orb-tr"></div>
   <div class="glow-orb orb-bl"></div>
 </div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="container">
     <div class="hero-content">
@@ -493,14 +492,12 @@ footer{
   </div>
 </section>
 
-<!-- DIVISÓRIA DA LOGO COM LINHA INTEGRADA MODERNA MAIS GROSSA -->
 <div class="brand-logo-divider-container">
   <div class="brand-logo-inner">
     <img src="page12.png" alt="Taís Alves Nails Designer Logo">
   </div>
 </div>
 
-<!-- QUEM SOU EU -->
 <section class="section about-section">
   <div class="container">
     <div class="about">
@@ -515,14 +512,12 @@ footer{
   </div>
 </section>
 
-<!-- SEÇÃO PROCEDIMENTOS MÃOS -->
 <section class="section">
   <div class="container">
     <button class="accordion-trigger" aria-expanded="false">Procedimentos</button>
     <div class="accordion-content">
       <div class="accordion-wrapper">
 
-        <!-- ITEM 1: Fibra de Vidro -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="alonf.jpg" alt="Fibra de Vidro">
@@ -533,7 +528,6 @@ footer{
           </div>
         </div>
 
-        <!-- ITEM 2: Blindagem Diamond -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="blida.jpg" alt="Blindagem Diamond">
@@ -544,7 +538,6 @@ footer{
           </div>
         </div>
 
-        <!-- ITEM 3: Esmaltação em Gel -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="unhasgel.jpg" alt="Esmaltação em Gel / Molde F1">
@@ -560,14 +553,12 @@ footer{
   </div>
 </section>
 
-<!-- SEÇÃO CUIDADOS COM OS PÉS -->
 <section class="section">
   <div class="container">
     <button class="accordion-trigger" aria-expanded="false">Estética dos Pés</button>
     <div class="accordion-content">
       <div class="accordion-wrapper">
 
-        <!-- ITEM 1: SPA dos Pés -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="spap.jpg" alt="SPA dos Pés">
@@ -578,7 +569,6 @@ footer{
           </div>
         </div>
 
-        <!-- ITEM 2: Pedicure Premium -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="Premium.png" alt="Pedicure Premium">
@@ -594,14 +584,12 @@ footer{
   </div>
 </section>
 
-<!-- SEÇÃO CUIDADOS & MANUTENÇÃO -->
 <section class="section">
   <div class="container">
     <button class="accordion-trigger" aria-expanded="false">Manutenções</button>
     <div class="accordion-content">
       <div class="accordion-wrapper">
 
-        <!-- ITEM 1: Alongamento -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="along.png" alt="Alongamento">
@@ -613,7 +601,6 @@ footer{
           </div>
         </div>
 
-        <!-- ITEM 2: Esmaltação em Gel -->
         <div class="service-block">
           <div class="service-block-image">
             <img src="cuidados-2.png" alt="Esmaltação em Gel">
@@ -630,7 +617,6 @@ footer{
   </div>
 </section>
 
-<!-- CONTATO E PAGAMENTO -->
 <section class="section payment-section">
   <div class="container">
     <div class="payment">
@@ -659,7 +645,6 @@ footer{
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <span>© <span id="year"></span> • Taís Alves Studio</span>
   <span class="credits">Página criada por Flow Páginas</span>
@@ -685,4 +670,4 @@ footer{
 </script>
 
 </body>
-</html
+</html>
