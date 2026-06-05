@@ -146,7 +146,7 @@ a{
   stroke-dasharray: 300;
   stroke-dashoffset: 300;
   animation: drawStroke 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  animation-delay: 0.5s; /* Começa suave logo após o carregamento inicial */
+  animation-delay: 0.5s;
 }
 
 @keyframes drawStroke {
@@ -442,13 +442,36 @@ footer{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .credits {
-  font-size: 8px;
-  letter-spacing: 1px;
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
   color: var(--rosa-dark);
+  text-transform: uppercase;
+}
+
+/* MINI BOTÃO DE CAPTAÇÃO DA AGÊNCIA (PADRÃO PREMIUM DA PÁGINA) */
+.btn-flow {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--branco);
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+  transition: all 0.3s ease;
+  margin-top: 2px;
+}
+
+.btn-flow:active {
+  transform: scale(0.96);
+  box-shadow: 0 2px 6px rgba(37, 211, 102, 0.15);
 }
 </style>
 </head>
@@ -508,7 +531,7 @@ footer{
           </div>
           <div class="service-block-text">
             <h4>Fibra de Vidro</h4>
-            <p>A fibra de vidro para unhas é um material composto por filamentos finos que, quando aplicados com um gel ou resina, reforçam a estrutura da unha, proporcionando alongamento leve, resistente and natural.</p>
+            <p>A fibra de vidro para unhas é um material composto por filamentos finos que, quando aplicados com um gel ou resina, reforçam a estrutura da unha, proporcionando alongamento leve, resistente e natural.</p>
           </div>
         </div>
 
@@ -620,7 +643,8 @@ footer{
 
   <footer>
     <span>© <span id="year"></span> • Taís Alves Studio</span>
-    <span class="credits">Página criada por Flow Páginas</span>
+    <span class="credits">DESENVOLVIDO POR FLOW PÁGINAS</span>
+    <a href="https://wa.me/SEU_NUMERO_AQUI" class="btn-flow" target="_blank">Solicite a sua</a>
   </footer>
 
 </div>
@@ -644,4 +668,3 @@ footer{
 </script>
 
 </body>
-</html>
